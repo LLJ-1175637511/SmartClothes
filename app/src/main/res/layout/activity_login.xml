@@ -1,0 +1,93 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <TextView
+            android:id="@+id/tv1"
+            android:layout_width="match_parent"
+            android:layout_height="50dp"
+            android:background="#49A3F5"
+            android:gravity="center"
+            android:text="@string/app_name"
+            android:textColor="#ffffff"
+            android:textSize="20dp"
+            tools:ignore="MissingConstraints" />
+
+        <ImageView
+            android:id="@+id/login_logo"
+            android:layout_width="200dp"
+            android:layout_height="200dp"
+            android:layout_marginTop="50dp"
+            android:background="#000"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintRight_toRightOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/tv1" />
+
+        <EditText
+            android:id="@+id/et_user_name_login"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="40dp"
+            android:layout_marginTop="30dp"
+            android:layout_marginRight="40dp"
+            android:hint="账号："
+            android:imeOptions="actionNext"
+            android:inputType="text"
+            android:textColor="@android:color/black"
+            android:textColorHint="#366685"
+            app:layout_constraintTop_toBottomOf="@+id/login_logo" />
+
+        <EditText
+            android:id="@+id/et_user_pwd_login"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="40dp"
+            android:layout_marginTop="20dp"
+            android:layout_marginRight="40dp"
+            android:hint="密码："
+            android:inputType="textPassword"
+            android:textColor="@android:color/black"
+            android:textColorHint="#366685"
+            app:layout_constraintTop_toBottomOf="@+id/et_user_name_login" />
+
+        <CheckBox
+            android:id="@+id/cb_remem_pwd_login"
+            android:layout_width="wrap_content"
+            android:layout_height="20dp"
+            android:layout_marginLeft="40dp"
+            android:layout_marginTop="10dp"
+            android:hint="记住密码"
+            android:checked="true"
+            android:textColorHint="#366685"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/et_user_pwd_login" />
+
+
+        <Button
+            android:id="@+id/btLogin"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="40dp"
+            android:background="#49A3F5"
+            android:text="点击登录"
+            android:textSize="20dp"
+            android:textColor="#ffffff"
+            android:layout_marginLeft="40dp"
+            android:layout_marginRight="40dp"
+            app:layout_constraintTop_toBottomOf="@+id/cb_remem_pwd_login"
+            tools:layout_editor_absoluteX="40dp" />
+
+        <Space
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_weight="3"
+            app:layout_constraintTop_toBottomOf="@+id/btLogin" />
+
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</layout>
