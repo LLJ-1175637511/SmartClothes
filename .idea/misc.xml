@@ -3,6 +3,13 @@
   <component name="DesignSurface">
     <option name="filePathToZoomLevelMap">
       <map>
+        <entry key="..\:/E/Android/Graduation2022/CommonLib/app/src/main/res/drawable/ic_launcher_background.xml" value="0.2555" />
+        <entry key="..\:/E/Android/Graduation2022/CommonLib/app/src/main/res/drawable/water_begin.xml" value="0.2555" />
+        <entry key="..\:/E/Android/Graduation2022/CommonLib/app/src/main/res/drawable/water_end.xml" value="0.2555" />
+        <entry key="..\:/E/Android/Graduation2022/CommonLib/app/src/main/res/drawable/water_yuan.xml" value="0.2555" />
+        <entry key="..\:/E/Android/Graduation2022/CommonLib/app/src/main/res/layout/activity_login.xml" value="0.12158054711246201" />
+        <entry key="..\:/E/Android/Graduation2022/CommonLib/app/src/main/res/layout/activity_main.xml" value="0.17427385892116182" />
+        <entry key="..\:/E/Android/Graduation2022/CommonLib/app/src/main/res/menu/toolbar_menu.xml" value="0.25" />
         <entry key="app/src/main/res/layout/activity_login.xml" value="0.19610507246376813" />
         <entry key="app/src/main/res/layout/activity_main.xml" value="0.25" />
         <entry key="app/src/main/res/layout/water_login.xml" value="0.1" />

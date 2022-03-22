@@ -1,12 +1,10 @@
-package com.llj.smartwatercontrol
+package com.android.main
 
 import androidx.activity.viewModels
-import com.llj.baselib.IOTLib
+import com.android.main.databinding.ActivityMainBinding
 import com.llj.baselib.IOTViewModel
 import com.llj.baselib.ui.IOTMainActivity
-import com.llj.baselib.utils.LogUtils
 import com.llj.baselib.utils.ToastUtils
-import com.llj.smartwatercontrol.databinding.ActivityMainBinding
 
 class MainActivity : IOTMainActivity<ActivityMainBinding>() {
 

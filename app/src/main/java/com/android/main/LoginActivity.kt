@@ -1,9 +1,9 @@
-package com.llj.smartwatercontrol
+package com.android.main
 
 import android.Manifest
-import android.content.Intent
+import com.android.main.databinding.ActivityLoginBinding
 import com.llj.baselib.ui.IOTLoginActivity
-import com.llj.smartwatercontrol.databinding.ActivityLoginBinding
+
 
 class LoginActivity : IOTLoginActivity<ActivityLoginBinding>() {
 
@@ -20,7 +20,7 @@ class LoginActivity : IOTLoginActivity<ActivityLoginBinding>() {
             etUserNameLogin.setText(getUserInfo().first)
             etUserPwdLogin.setText(getUserInfo().second)
             btLogin.setOnClickListener {
-                login(etUserNameLogin.text.toString(),etUserPwdLogin.text.toString(),MainActivity::class.java)
+                login(etUserNameLogin.text.toString(),etUserPwdLogin.text.toString(), MainActivity::class.java)
             }
         }
     }

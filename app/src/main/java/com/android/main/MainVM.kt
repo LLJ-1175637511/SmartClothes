@@ -1,4 +1,4 @@
-package com.llj.smartwatercontrol
+package com.android.main
 
 import com.llj.baselib.IOTViewModel
 
