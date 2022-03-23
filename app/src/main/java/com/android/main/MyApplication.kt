@@ -8,11 +8,11 @@ class MyApplication : Application() {
     override fun onCreate() {
         super.onCreate()
         val bean = UserConfigBean(
-            userId = "6895",
-            appKey = "7e3130c485",
-            deviceId = "15430",
-            clientId = "766",
-            clientSecret = "3702a74cd8"
+            userId = "",
+            appKey = "",
+            deviceId = "",
+            clientId = "",
+            clientSecret = ""
         )
         IOTLib.init(applicationContext,bean)
     }
