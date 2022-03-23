@@ -13,5 +13,5 @@ dependencyResolutionManagement {
         maven { url 'https://jitpack.io' }
     }
 }
-rootProject.name = "CommonLib"
+rootProject.name = "SmartClothes"
 include ':app'

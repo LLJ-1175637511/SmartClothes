@@ -2,8 +2,10 @@ package com.android.main
 
 import androidx.activity.viewModels
 import com.android.main.databinding.ActivityMainBinding
+import com.llj.baselib.IOTLib
 import com.llj.baselib.IOTViewModel
 import com.llj.baselib.ui.IOTMainActivity
+import com.llj.baselib.utils.LogUtils
 import com.llj.baselib.utils.ToastUtils
 
 class MainActivity : IOTMainActivity<ActivityMainBinding>() {
@@ -15,14 +17,19 @@ class MainActivity : IOTMainActivity<ActivityMainBinding>() {
     override fun init() {
         super.init()
         vm.connect(this, MainDataBean::class.java)
+        initMainView()
+    }
+
+    private fun initMainView() {
+
     }
 
     override fun offDevLine() {
-        mDataBinding.tvDevState.text = "离线"
+        mDataBinding.tvDevState.text = "设备离线"
     }
 
     override fun onDevLine() {
-        mDataBinding.tvDevState.text = "在线"
+        mDataBinding.tvDevState.text = "设备在线"
     }
 
     override fun realData(data: Any?) {
@@ -30,7 +37,7 @@ class MainActivity : IOTMainActivity<ActivityMainBinding>() {
     }
 
     override fun webState(state: IOTViewModel.WebSocketType) {
-        mDataBinding.tvState.text = state.name
+        LogUtils.d(IOTLib.TAG,state.name.toString())
     }
 
 }
