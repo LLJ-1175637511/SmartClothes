@@ -13,7 +13,8 @@
         <entry key="app/src/main/res/drawable/shape_rect_brown.xml" value="0.2175" />
         <entry key="app/src/main/res/drawable/shape_rect_white_all.xml" value="0.235" />
         <entry key="app/src/main/res/layout/activity_login.xml" value="0.19610507246376813" />
-        <entry key="app/src/main/res/layout/activity_main.xml" value="0.375" />
+        <entry key="app/src/main/res/layout/activity_main.xml" value="0.304638671875" />
+        <entry key="app/src/main/res/layout/toolbar.xml" value="0.22056159420289856" />
         <entry key="app/src/main/res/layout/water_login.xml" value="0.1" />
         <entry key="app/src/main/res/menu/toolbar_menu.xml" value="0.15520833333333334" />
       </map>

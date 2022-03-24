@@ -26,6 +26,7 @@ class MainActivity : IOTMainActivity<ActivityMainBinding>() {
     }
 
     private fun initMainView() {
+        initToolbar()
         lifecycleScope.launch(Dispatchers.IO) {
             while (true){
                 runOnUiThread {
@@ -39,6 +40,22 @@ class MainActivity : IOTMainActivity<ActivityMainBinding>() {
         }
     }
 
+    private fun initToolbar() {
+        mDataBinding.toolbar.apply {
+            toolbarBaseTitle.text = getString(R.string.app_name)
+            toolbarBase.inflateMenu(R.menu.toolbar_menu)
+            toolbarBase.setOnMenuItemClickListener { item ->
+                when (item.itemId) {
+                    R.id.quit_app -> {
+                        startCommonActivity<LoginActivity>()
+                        finish()
+                    }
+                }
+                false
+            }
+        }
+    }
+
     private val tips = arrayOf(
         "今日天气不错 记得多通通风呦！",
         "上班前 不要忘记关闭无用电源哦！",
@@ -46,11 +63,15 @@ class MainActivity : IOTMainActivity<ActivityMainBinding>() {
         "新的一天 要元气满满呀"
     )
 
+    @SuppressLint("ResourceAsColor")
     override fun offDevLine() {
+        mDataBinding.tvDevState.setTextColor(R.color.red)
         mDataBinding.tvDevState.text = "设备离线"
     }
 
+    @SuppressLint("ResourceAsColor")
     override fun onDevLine() {
+        mDataBinding.tvDevState.setTextColor(R.color.greenDark)
         mDataBinding.tvDevState.text = "设备在线"
     }
 
