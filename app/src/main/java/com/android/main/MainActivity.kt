@@ -8,7 +8,6 @@ import com.llj.baselib.IOTLib
 import com.llj.baselib.IOTViewModel
 import com.llj.baselib.ui.IOTMainActivity
 import com.llj.baselib.utils.LogUtils
-import com.llj.baselib.utils.ToastUtils
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.delay
 import kotlinx.coroutines.launch
@@ -36,7 +35,9 @@ class MainActivity : IOTMainActivity<ActivityMainBinding>() {
             }
         }
         mDataBinding.boxShake.setOnCheckedChangeListener { _, b ->
-            if (b) vm.changeControl()
+            if (mDataBinding.tvDevState.text != "设备在线") return@setOnCheckedChangeListener
+            if (b) vm.open()
+            else vm.close()
         }
     }
 
@@ -77,14 +78,26 @@ class MainActivity : IOTMainActivity<ActivityMainBinding>() {
 
     @SuppressLint("SetTextI18n")
     override fun realData(data: Any?) {
-        val mainDataBean = (data as MainDataBean) ?: return
+        if (data == null) return
+        val mainDataBean = data as MainDataBean
         mDataBinding.tvTemp.text = "${mainDataBean.temp.toShow()} °c"
         mDataBinding.tvHump.text = "${mainDataBean.humi.toShow()} %"
         mDataBinding.tvWind.text = "${mainDataBean.windDegree.toShow()} m/s"
-        mDataBinding.tvLight.text = "${mainDataBean.windDegree.toShow()} w/m²"
-        mDataBinding.tvCover.text = mainDataBean.coveredAndRained.toShow()
-        mDataBinding.tvRain.text = "${mainDataBean.coveredAndRained.toShow()} mm"
-
+        if (mainDataBean.windDegree > 200){
+            mDataBinding.tvLight.text = "不足"
+        }else{
+            mDataBinding.tvLight.text = "良好"
+        }
+        if (mainDataBean.covered == 1){
+            mDataBinding.tvCover.text = "有衣物"
+        }else{
+            mDataBinding.tvCover.text = "无衣物"
+        }
+        if (mainDataBean.rained > 800f){
+            mDataBinding.tvRain.text = "晴朗"
+        }else{
+            mDataBinding.tvRain.text = "有雨"
+        }
 //        ToastUtils.toastShort("data:${(data as MainDataBean).toString()}")
     }
 

@@ -4,30 +4,26 @@ import com.llj.baselib.IOTInterfaceId;
 
 public class MainDataBean {
 
-    @IOTInterfaceId("14770")
+    @IOTInterfaceId("22818")
     private Float temp;
 
+    @IOTInterfaceId("22720")
     private Float humi;
 
+    @IOTInterfaceId("22727")
     private Float windDegree;
 
+    @IOTInterfaceId("22724")
     private Float lightDegree;
 
-    private Float coveredAndRained;
+    @IOTInterfaceId("22725")
+    private int covered;
+
+    @IOTInterfaceId("22726")
+    private Float rained;
 
     public Float getTemp() {
         return temp;
-    }
-
-    @Override
-    public String toString() {
-        return "MainDataBean{" +
-                "temp=" + temp +
-                ", humi=" + humi +
-                ", windDegree=" + windDegree +
-                ", lightDegree=" + lightDegree +
-                ", coveredAndRained=" + coveredAndRained +
-                '}';
     }
 
     public void setTemp(Float temp) {
@@ -58,11 +54,31 @@ public class MainDataBean {
         this.lightDegree = lightDegree;
     }
 
-    public Float getCoveredAndRained() {
-        return coveredAndRained;
+    public Integer getCovered() {
+        return covered;
     }
 
-    public void setCoveredAndRained(Float coveredAndRained) {
-        this.coveredAndRained = coveredAndRained;
+    public void setCovered(Integer covered) {
+        this.covered = covered;
+    }
+
+    public Float getRained() {
+        return rained;
+    }
+
+    public void setRained(Float rained) {
+        this.rained = rained;
+    }
+
+    @Override
+    public String toString() {
+        return "MainDataBean{" +
+                "temp=" + temp +
+                ", humi=" + humi +
+                ", windDegree=" + windDegree +
+                ", lightDegree=" + lightDegree +
+                ", covered=" + covered +
+                ", rained=" + rained +
+                '}';
     }
 }
