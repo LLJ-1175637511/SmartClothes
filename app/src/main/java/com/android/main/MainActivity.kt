@@ -21,14 +21,14 @@ class MainActivity : IOTMainActivity<ActivityMainBinding>() {
 
     override fun init() {
         super.init()
-//        vm.connect(this, MainDataBean::class.java)
+        vm.connect(this, MainDataBean::class.java)
         initMainView()
     }
 
     private fun initMainView() {
         initToolbar()
         lifecycleScope.launch(Dispatchers.IO) {
-            while (true){
+            while (true) {
                 runOnUiThread {
                     mDataBinding.tvTips.text = tips[(0..tips.lastIndex).random()]
                 }
@@ -78,18 +78,19 @@ class MainActivity : IOTMainActivity<ActivityMainBinding>() {
     @SuppressLint("SetTextI18n")
     override fun realData(data: Any?) {
         val mainDataBean = (data as MainDataBean) ?: return
-        mDataBinding.tvTemp.text = "${mainDataBean.temp} °c"
-        mDataBinding.tvHump.text = "${mainDataBean.humi} %"
-        mDataBinding.tvWind.text = "${mainDataBean.windDegree} m/s"
-        mDataBinding.tvLight.text = "${mainDataBean.windDegree} w/m²"
-        mDataBinding.tvCover.text = "${mainDataBean.coveredAndRained}"
-        mDataBinding.tvRain.text = "${mainDataBean.coveredAndRained} mm"
+        mDataBinding.tvTemp.text = "${mainDataBean.temp.toShow()} °c"
+        mDataBinding.tvHump.text = "${mainDataBean.humi.toShow()} %"
+        mDataBinding.tvWind.text = "${mainDataBean.windDegree.toShow()} m/s"
+        mDataBinding.tvLight.text = "${mainDataBean.windDegree.toShow()} w/m²"
+        mDataBinding.tvCover.text = mainDataBean.coveredAndRained.toShow()
+        mDataBinding.tvRain.text = "${mainDataBean.coveredAndRained.toShow()} mm"
 
-        ToastUtils.toastShort("data:${(data as MainDataBean).toString()}")
+//        ToastUtils.toastShort("data:${(data as MainDataBean).toString()}")
     }
 
     override fun webState(state: IOTViewModel.WebSocketType) {
-        LogUtils.d(IOTLib.TAG,state.name.toString())
+        LogUtils.d(IOTLib.TAG, state.name.toString())
     }
 
+    fun Float.toShow() = ((this * 10).toInt() / 10).toString()
 }
