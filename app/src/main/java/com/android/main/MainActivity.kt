@@ -83,7 +83,7 @@ class MainActivity : IOTMainActivity<ActivityMainBinding>() {
         mDataBinding.tvTemp.text = "${mainDataBean.temp.toShow()} °c"
         mDataBinding.tvHump.text = "${mainDataBean.humi.toShow()} %"
         mDataBinding.tvWind.text = "${mainDataBean.windDegree.toShow()} m/s"
-        if (mainDataBean.windDegree > 200){
+        if (mainDataBean.lightDegree > 200){
             mDataBinding.tvLight.text = "不足"
         }else{
             mDataBinding.tvLight.text = "良好"
